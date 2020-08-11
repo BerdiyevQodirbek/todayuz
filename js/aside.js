@@ -24,3 +24,18 @@ firestore.collection(user+'.worklist').get().then(snapshot =>{
         
     })
 })
+
+
+
+// log out
+
+const logOut = document.getElementById('btn-log-out');
+
+logOut.addEventListener('click', ()=>{
+    let c = confirm('Do you really want to log out?');
+    if(c){
+        localStorage.clear();
+        location.reload();
+    }
+    
+})
