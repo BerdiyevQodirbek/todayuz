@@ -1,4 +1,14 @@
-  // Your web app's Firebase configuration
+var user = localStorage.getItem('email');
+
+(() => {
+  if(!user){
+    location.href = '../sign.html';
+  }
+})();
+
+
+
+// Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyB6eqJ8BpUuhOXGynt9Pv7irV3ubr9PTbA",
     authDomain: "todayuz-a95e4.firebaseapp.com",
