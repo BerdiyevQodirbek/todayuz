@@ -2,8 +2,6 @@
     box-sizing: border-box;
 }
 
-@import '_colors';
-
 .main {
     background-color: $whiteA;
 }
@@ -12,16 +10,16 @@
     background-color: $whiteB;
     height: 100vh;
     min-width: 250px;
-
+    
     .logo {
         text-align: center;
-
+        
         img {
             width: 80%;
             margin-top: 10px;
-
+            
         }
-
+        
     }
 }
 .aside-list{
@@ -39,3 +37,6 @@
         }
     }
 }
+
+@import '_colors';
+@import '_sign';
