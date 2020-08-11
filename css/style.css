@@ -2,39 +2,11 @@
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-body {
-  padding-bottom: 50px;
-  background: #e9faff;
-  font-family: Dosis;
-}
-
-#sign {
-  background: #e9faff;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-#form {
-  background: white;
-  width: 300px;
-  border-radius: 5px;
-  overflow: hidden;
-  padding: 10px;
-}
-=======
-.main {
-  background-color: #FAFAFA;
-}
-
 .aside {
   background-color: #F5F5F5;
   height: 100vh;
   min-width: 250px;
+  max-width: 250px;
 }
 .aside .logo {
   text-align: center;
@@ -59,6 +31,27 @@ body {
 .aside-list ul li a {
   color: #28333B;
 }
->>>>>>> 5542b85ac2311fd2fa9ee6dbd594ed179d9c7de0
+
+.main {
+  background-color: #FAFAFA;
+}
+
+#sign {
+  background: #e9faff;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#form {
+  background: white;
+  width: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 10px;
+}
 
 /*# sourceMappingURL=style.css.map */
