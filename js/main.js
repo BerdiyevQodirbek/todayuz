@@ -23,17 +23,3 @@ var user = localStorage.getItem('email');
   
 firebase.initializeApp(firebaseConfig);
 var firestore = firebase.firestore();
-var txt = document.getElementById("txt")
-
-function fb() {
-    console.log(txt.value);
-    firestore.collection("cities").doc(txt.value).set({
-        name: txt.value
-    })
-    .then(function() {
-        console.log("Document successfully written!");
-    })
-    .catch(function(error) {
-        console.error("Error writing document: ", error);
-    });
-}
