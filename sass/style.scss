@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+@import '_colors';
+
+.main {
+    background-color: $whiteA;
+}
+
+.aside {
+    background-color: $whiteB;
+    height: 100vh;
+    min-width: 250px;
+
+    .logo {
+        text-align: center;
+
+        img {
+            width: 80%;
+            margin-top: 10px;
+
+        }
+
+    }
+}
+.aside-list{
+    margin-top: 20px;
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0px 0px;
+        margin-bottom: 10px;
+        li{
+            padding: 10px;
+            a{
+                color: $textColor;
+            }
+        }
+    }
+}
