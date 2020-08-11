@@ -5,12 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
-
+    <div id="sign">
+        <div id="form">
+          <ul class="nav nav-tabs d-flex justify-content-around" role="tablist">
+            <li class="nav-item">
+                <a href="#signIn" class="nav-link text-primary active" data-toggle="tab" role="tab" id="signInLink">Sign In</a>
+            </li>
+            <li class="nav-item">
+                <a href="#signUp" class="nav-link text-primary" data-toggle="tab" role="tab" id="signUpLink">Sign Up</a>
+            </li>
+          </ul>
+        <!--   T A B - C O N T E N T   -->
+          <div class="tab-content">
+              <!--  S I G N I N -->
+              <div class="tab-pane fade show active" id="signIn" role="tabpanel">
+                  <div class="input-group my-4">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">
+                              <i class="ti-email"></i>
+                          </span>
+                      </div>
+                      <input type="email" class="form-control" name="signMail" placeholder="Enter Your Email..">
+                  </div>
+                  <div class="input-group my-4">
+                      <div class="input-group-prepend">
+                          <sapn class="input-group-text">
+                              <i class="ti-lock"></i>
+                          </sapn>
+                      </div>
+                      <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="password">
+                  </div>
+                  <button onclick="login(this)" class="btn-primary btn-lg btn-block" id="signInBtn">Login</button>
+              </div>
+              <!--  S I G N U P -->
+              <div class="tab-pane fade" id="signUp" role="tabpanel">
+                <div class="input-group my-4">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="ti-user"></i>
+                          </span>
+                      </div>
+                      <input type="text" class="form-control" id="signName" placeholder="Your Name">
+                </div>
+                <div class="input-group my-4">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="ti-world"></i>
+                          </span>
+                      </div>
+                      <input type="text" class="form-control" id="signComp" placeholder="Your Company Name">
+                </div>
+                <div class="input-group my-4">
+                      <div class="input-group-prepend">
+                          <sapn class="input-group-text">
+                            <i class="ti-email text-danger"></i>
+                          </sapn>
+                      </div>
+                      <input type="email" class="form-control" id="signEmail" placeholder="Your Email Adress">
+                </div>
+                <div class="input-group my-4">
+                      <div class="input-group-prepend">
+                          <sapn class="input-group-text">
+                            <i class="ti-lock text-danger"></i>
+                          </sapn>
+                      </div>
+                      <input type="password" class="form-control" id="signPassword" placeholder="Your Password" name="password">
+                </div>
+                <div class="input-group my-4">
+                      <div class="input-group-prepend">
+                          <sapn class="input-group-text">
+                            <i class="ti-mobile"></i>
+                          </sapn>
+                      </div>
+                      <input type="tel" class="form-control" id="signTel" placeholder="Your Phone Number" name="password">
+                </div>
+                <button onclick="signUp(this)" class="btn-primary btn-lg btn-block" id="signUpBtn">Sign Up</button>
+              </div>
+          </div>
+        </div>
+    </div>
 
     <!-- Bootstrap -->
 
@@ -21,5 +100,7 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+
+    <script src="js/sign.js"></script>
 </body>
 </html>
