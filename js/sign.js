@@ -1,3 +1,12 @@
+var r = localStorage.getItem('email')
+
+(() => {
+    if (!r) {
+        location.href
+    }
+})()
+
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<  F I R E B A S E >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   // Your web app's Firebase configuration
