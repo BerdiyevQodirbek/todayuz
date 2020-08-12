@@ -8,7 +8,7 @@ addList.addEventListener('submit', (e) =>{
     firestore.collection(user+'.worklist').doc(listName).set({
         name: listName
     }).then(()=>{
-        asideBar.innerHTML += `<li><button class="listBtn">${data.id}</button><button class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
+        asideBar.innerHTML += `<li><button class="listBtn">${listName}</button><button class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
         addList.listName.value = '';
 
     }).catch((err)=>{
