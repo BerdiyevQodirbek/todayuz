@@ -1,69 +1,70 @@
 .main {
     background-color: $whiteA;
-    
+
 }
 
 
-fieldset{
+fieldset {
     border-top: solid 1px #333;
     padding: 10px;
-    
 }
-legend{
+
+legend {
     width: unset;
     padding: 0px 10px;
     font-size: large;
     font-style: italic;
 }
 
-.top-user-info{
+.top-user-info {
 
-    h1{
+    h1 {
         text-align: right;
         margin: 0;
         font-style: italic;
     }
 }
 
-.preset{
+.preset {
     display: flex;
     align-items: center;
-    span{
+
+    span {
         margin-right: 10px;
     }
-    select{
+
+    select {
         display: inline;
         width: unset;
         margin-right: 10px;
 
     }
 }
-.preset-show{
-    table{
-        tr:last-child{
-            td{
-                padding: 0;
 
-            
+.preset-show {
+    table {
+        tr:last-child {
+            td {
+                padding: 0;
             }
-            td:last-child{
+
+            td:last-child {
                 padding: 6px;
             }
         }
-        td{
+
+        td {
             background-color: #eee;
             text-align: center;
-            // border: 2px solid #f5f5f5;
             border: none;
-            
+
         }
     }
-    input,select{
+
+    input,select {
         padding: 4px;
         font-size: smaller;
     }
-    input[type = date]{
-        -webkit-appearance: none;
-    }
-    
+
+
 }

@@ -111,9 +111,6 @@ legend {
   padding: 4px;
   font-size: smaller;
 }
-.preset-show input[type=date] {
-  -webkit-appearance: none;
-}
 
 #sign {
   background: #e9faff;
