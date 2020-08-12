@@ -1,3 +1,6 @@
+.row {
+    margin: 0;
+}
 .aside {
     background-color: $whiteB;
     height: 100vh;
@@ -33,17 +36,18 @@
                 }
                 .dropdownBtn{
                     margin-left: -25px;
-                    display: block;
+                    opacity: 1;
+                    outline: none;
                 }
 
             }
             .listBtn{
                 width: 90%;
-                
+                outline: none;
             }
             .dropdownBtn{
                 width: 10%;
-                display: none;
+                opacity: 0;
             }
             button{
                 color: $textColor;
