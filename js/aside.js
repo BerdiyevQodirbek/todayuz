@@ -20,12 +20,8 @@ addList.addEventListener('submit', (e) =>{
 
 firestore.collection(user+'.worklist').get().then(snapshot =>{
     snapshot.forEach(data =>{
-<<<<<<< HEAD
         asideBar.innerHTML += `<li><a href="#">${data.id}</a></li>`;
         var mainSide = document.getElementsByClassName("main")[0];
-=======
-        asideBar.innerHTML += `<li><button class="listBtn">${data.id}</button><button class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
->>>>>>> c4b78f9097c1ffee436f41c11f848911d2133c0f
         
     })
 })
