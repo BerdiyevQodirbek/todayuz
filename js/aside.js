@@ -8,7 +8,7 @@ addList.addEventListener('submit', (e) =>{
     firestore.collection(user+'.worklist').doc(listName).set({
         name: listName
     }).then(()=>{
-        asideBar.innerHTML += `<li><a href="#">${listName}</a></li>`;
+        asideBar.innerHTML += `<li><button>${listName}</button></li>`;
         addList.listName.value = '';
 
     }).catch((err)=>{
@@ -20,7 +20,7 @@ addList.addEventListener('submit', (e) =>{
 
 firestore.collection(user+'.worklist').get().then(snapshot =>{
     snapshot.forEach(data =>{
-        asideBar.innerHTML += `<li><a href="#">${data.id}</a></li>`;
+        asideBar.innerHTML += `<li><button class="listBtn">${data.id}</button><button class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
         
     })
 })
