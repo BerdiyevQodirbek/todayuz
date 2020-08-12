@@ -92,7 +92,7 @@ legend {
 }
 .preset select {
   display: inline;
-  width: unset;
+  width: auto;
   margin-right: 10px;
 }
 
