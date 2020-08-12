@@ -29,6 +29,7 @@
 }
 .aside-list ul li {
   display: flex;
+  margin-left: -25px;
 }
 .aside-list ul li:hover {
   background-color: #2D8BDE;
@@ -52,6 +53,7 @@
   opacity: 0;
 }
 .aside-list ul li button {
+  margin-left: 10px;
   color: #28333B;
   background-color: transparent;
   border: none;
