@@ -61,6 +61,15 @@
   padding: 5px 20px;
 }
 
+.aside-bar {
+  height: 65vh;
+  overflow-y: auto;
+}
+
+.footer-button {
+  text-align: center;
+}
+
 .main {
   background-color: #FAFAFA;
 }
