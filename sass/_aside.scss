@@ -27,6 +27,7 @@
 
         li{
             display: flex;
+            margin-left: -25px;
             &:hover{
                 background-color: #2D8BDE;
                 color: $whiteB;
@@ -50,6 +51,7 @@
                 opacity: 0;
             }
             button{
+                margin-left: 10px;
                 color: $textColor;
                 background-color: transparent;
                 border: none;
