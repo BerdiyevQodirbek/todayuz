@@ -61,6 +61,15 @@
   padding: 5px 20px;
 }
 
+.aside-bar {
+  height: 65vh;
+  overflow-y: auto;
+}
+
+.footer-button {
+  text-align: center;
+}
+
 .main {
   background-color: #FAFAFA;
 }
@@ -86,6 +95,53 @@
   cursor: pointer;
   transition: 0.5s;
   color: transparent;
+}
+
+fieldset {
+  border-top: solid 1px #333;
+  padding: 10px;
+}
+
+legend {
+  width: unset;
+  padding: 0px 10px;
+  font-size: large;
+  font-style: italic;
+}
+
+.top-user-info h1 {
+  text-align: right;
+  margin: 0;
+  font-style: italic;
+}
+
+.preset {
+  display: flex;
+  align-items: center;
+}
+.preset span {
+  margin-right: 10px;
+}
+.preset select {
+  display: inline;
+  width: auto;
+  margin-right: 10px;
+}
+
+.preset-show table tr:last-child td {
+  padding: 0;
+}
+.preset-show table tr:last-child td:last-child {
+  padding: 6px;
+}
+.preset-show table td {
+  background-color: #eee;
+  text-align: center;
+  border: none;
+}
+.preset-show input, .preset-show select {
+  padding: 4px;
+  font-size: smaller;
 }
 
 #sign {

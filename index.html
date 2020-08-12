@@ -16,9 +16,9 @@
 
     <div class="container-flued">
         <div class="row">
-            <div class="col-md-3 aside">
+            <div class="col-md-3 col-sm-3 aside">
                 <div class="logo">
-                    <a href="#"><img src="icons/logo.svg" alt="rasm"></a>
+                    <a href="index.html"><img src="icons/logo.svg" alt="rasm"></a>
                 </div>
                 <div class="aside-list">
                     <form action="" id="add-list">
@@ -26,53 +26,40 @@
                             <input type="text" name="listName" class="form-control" placeholder="Something new"
                                 aria-label="Recipient's username" aria-describedby="button-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">ADD</button>
+                                <button class="btn btn-primary" type="submit" id="button-addon2"><i class="ti-plus"></i></button>
                             </div>
                         </div>
                     </form>
-                    <ul id="aside-bar">
+                    <ul id="aside-bar" class="aside-bar">
 
                     </ul>
 
 
                 </div>
-                
-                <div>
-                    <button class="btn btn-primary" id="settingsBtn"><i class="ti-settings"></i>Settings</button>
-                    <button class="btn btn-danger" id="btn-log-out" id="logoutBtn"><i class="ti-shift-left"></i>Log out</button>
+
+                <div class="footer-button">
+                    <button class="btn btn-primary" id="settingsBtn"><i class="ti-settings"></i> Settings</button>
+                    <button class="btn btn-danger" id="btn-log-out"><i class="ti-shift-left"></i> Log out</button>
                 </div>
             </div>
-            <div class="col-md-9 main">
+            <div class="col-md-9 col-sm-9 main">
 
-                <div id="settingsSection">
-                    <form class="row">
-                        <div class="form-group col-md-6">
-                          <label for="" class="col-form-label">Company Name</label>
-                          <input type="text" autocomplete="off" class="form-control" id="compName">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="" class="col-form-label">Email</label>
-                          <input type="email" autocomplete="off" class="form-control" id="email">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="" class="col-form-label">Name</label>
-                          <input type="text" autocomplete="off" class="form-control" id="name">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="" class="col-form-label">Password</label>
-                          <input type="password" autocomplete="off" class="form-control" id="psw">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="" class="col-form-label">Tel</label>
-                          <input type="tel" autocomplete="off" class="form-control" id="tel">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <div id="userImg">
-                                <input type="file" class="form-control" title=" " id="ImgFile">
-                            </div>
-                        </div>
-                      </form>
+                
+
+                <div class="preset form-group">
+                    <select id="select-preset" class="form-control">
+                        <option hidden>Select your preset</option>
+                        <option>Video Studio</option>
+                        <option>Web Developer</option>
+                    </select>
+                    <button class="btn btn-primary" id="create-table">Create</button>
+
+
                 </div>
+                <div id="preset-show" class="preset-show">
+                   
+                </div>
+
 
             </div>
         </div>
@@ -103,6 +90,7 @@
     <script src="js/main.js"></script>
     <script src="js/aside.js"></script>
     <script src="js/setting.js"></script>
+    <script src="js/preset.js"></script>
 
 </body>
 

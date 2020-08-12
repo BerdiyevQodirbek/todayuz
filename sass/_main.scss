@@ -4,3 +4,69 @@
         text-align: end;
     }
 }
+
+
+fieldset {
+    border-top: solid 1px #333;
+    padding: 10px;
+}
+
+legend {
+    width: unset;
+    padding: 0px 10px;
+    font-size: large;
+    font-style: italic;
+}
+
+.top-user-info {
+
+    h1 {
+        text-align: right;
+        margin: 0;
+        font-style: italic;
+    }
+}
+
+.preset {
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-right: 10px;
+    }
+
+    select {
+        display: inline;
+        width: auto;
+        margin-right: 10px;
+
+    }
+}
+
+.preset-show {
+    table {
+        tr:last-child {
+            td {
+                padding: 0;
+            }
+
+            td:last-child {
+                padding: 6px;
+            }
+        }
+
+        td {
+            background-color: #eee;
+            text-align: center;
+            border: none;
+
+        }
+    }
+
+    input,select {
+        padding: 4px;
+        font-size: smaller;
+    }
+
+
+}
