@@ -1,6 +1,7 @@
 #sign {
-    background: #e9faff;
     height: 100%;
+    background: url(../img/back.jpg);
+    background-size: cover;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -13,4 +14,8 @@
     border-radius: 5px;
     overflow: hidden;
     padding: 10px;
+}
+.sign-logo{
+    position: absolute;
+    top: 10px;
 }

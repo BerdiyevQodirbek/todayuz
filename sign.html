@@ -10,8 +10,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+
     <div id="sign">
+      <div class="sign-logo">
+        <img src="icons/logo.svg" alt="" width="300px">
+      </div>
         <div id="form">
           <ul class="nav nav-tabs d-flex justify-content-around" role="tablist">
             <li class="nav-item">
@@ -41,7 +44,7 @@
                       </div>
                       <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="password">
                   </div>
-                  <button onclick="login(this)" class="btn-primary btn-lg btn-block" id="signInBtn">Login</button>
+                  <button onclick="login(this)" class="btn btn-primary btn-lg btn-block" id="signInBtn">Login</button>
               </div>
               <!--  S I G N U P -->
               <div class="tab-pane fade" id="signUp" role="tabpanel">
@@ -85,7 +88,7 @@
                       </div>
                       <input type="tel" class="form-control" id="signTel" placeholder="Your Phone Number" name="password">
                 </div>
-                <button onclick="signUp(this)" class="btn-primary btn-lg btn-block" id="signUpBtn">Sign Up</button>
+                <button onclick="signUp(this)" class="btn btn-primary btn-lg btn-block" id="signUpBtn">Sign Up</button>
               </div>
           </div>
         </div>
