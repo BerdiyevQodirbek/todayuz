@@ -1,8 +1,7 @@
 .aside {
     background-color: $whiteB;
     height: 100vh;
-    min-width: 250px;
-    max-width: 250px;
+   
     
     .logo {
         text-align: center;
@@ -22,10 +21,39 @@
         margin: 0;
         padding: 0px 0px;
         margin-bottom: 10px;
+        margin-left: -16px;
+
         li{
-            padding: 10px;
-            a{
+            display: flex;
+            &:hover{
+                background-color: #2D8BDE;
+                color: $whiteB;
+                border-radius: 0px 6px 6px 0px;
+                button {
+                    color: $whiteB;
+                }
+                .dropdownBtn{
+                    margin-left: -25px;
+                    display: block;
+                }
+
+            }
+            .listBtn{
+                width: 90%;
+                
+            }
+            .dropdownBtn{
+                width: 10%;
+                display: none;
+            }
+            button{
                 color: $textColor;
+                background-color: transparent;
+                border: none;
+                text-align: left;
+                padding: 5px 20px;
+
+                
             }
         }
     }

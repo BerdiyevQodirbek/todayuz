@@ -5,8 +5,6 @@
 .aside {
   background-color: #F5F5F5;
   height: 100vh;
-  min-width: 250px;
-  max-width: 250px;
 }
 .aside .logo {
   text-align: center;
@@ -24,12 +22,36 @@
   margin: 0;
   padding: 0px 0px;
   margin-bottom: 10px;
+  margin-left: -16px;
 }
 .aside-list ul li {
-  padding: 10px;
+  display: flex;
 }
-.aside-list ul li a {
+.aside-list ul li:hover {
+  background-color: #2D8BDE;
+  color: #F5F5F5;
+  border-radius: 0px 6px 6px 0px;
+}
+.aside-list ul li:hover button {
+  color: #F5F5F5;
+}
+.aside-list ul li:hover .dropdownBtn {
+  margin-left: -25px;
+  display: block;
+}
+.aside-list ul li .listBtn {
+  width: 90%;
+}
+.aside-list ul li .dropdownBtn {
+  width: 10%;
+  display: none;
+}
+.aside-list ul li button {
   color: #28333B;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  padding: 5px 20px;
 }
 
 .main {
