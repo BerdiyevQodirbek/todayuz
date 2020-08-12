@@ -42,39 +42,52 @@ function signUp(el) {
     var signPassword = document.getElementById("signPassword");
     var signTel = document.getElementById("signTel");
     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    if (signName.value == "") {
-        el.innerText = "Entir your Name"
-        signName.focus()
-    } else if(signComp.value == "") {
-        el.innerText = "Entir your Comp"
-        signComp.focus()
-    } else if (reg.test(signEmail.value) == false) {
-        el.innerText = "Invalid EMail";
-        signEmail.focus()
-        return false;
-    } else if(signPassword.value == "") {
-        el.innerText = "Entir your Pssword"
-        signPassword.focus()
-    } else if(signTel.value.length < 7) {
-        el.innerText = "Entir your Tel"
-        signTel.focus()
-    } else {
-        firestore.collection("users").doc(signEmail.value)
-        .set({
-            name: signName.value,
-            compName: signComp.value,
-            email: signEmail.value,
-            password: signPassword.value,
-            tel: signTel.value
+    firestore.collection("users").get().then( users => {
+        users.forEach( user => {
+            var isExist = user.find(dat => dat.id === signEmail.value)
+            if (signName.value == "") {
+                el.innerText = "Entir your Name"
+                signName.focus()
+            } else if(signComp.value == "") {
+                el.innerText = "Entir your Comp"
+                signComp.focus()
+            } else if (reg.test(signEmail.value) == false) {
+                el.innerText = "Invalid EMail";
+                signEmail.focus()
+                return false;
+            } else if (isExist) {
+                el.innerText = "Email Exist";
+                console.log(signEail.value);
+                signEmail.focus()
+                return false;
+            } else if(signPassword.value == "") {
+                el.innerText = "Entir your Pssword"
+                signPassword.focus()
+            } else if(signTel.value.length < 7) {
+                el.innerText = "Entir your Tel"
+                signTel.focus()
+            } else {
+                console.log("not working");
+                firestore.collection("users").doc(signEmail.value)
+                .set({
+                    name: signName.value,
+                    compName: signComp.value,
+                    email: signEmail.value,
+                    password: signPassword.value,
+                    tel: signTel.value
+                })
+                .then(() => {
+                    el.innerText= "Sign Up"
+                    document.getElementById("signInLink").click()
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+            }
         })
-        .then(() => {
-            el.innerText= "Sign Up"
-            document.getElementById("signInLink").click()
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-    }
+    }).catch((err) => {
+        console.log(err);
+    })
 }
 
 // Sign In

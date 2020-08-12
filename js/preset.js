@@ -1,9 +1,8 @@
-const selectPreset = document.querySelector('#select-preset');
-const presetShow = document.querySelector('#preset-show');
-
-selectPreset.addEventListener('change', (e)=>{
-    e.preventDefault();
-    if(selectPreset.value == 'Video Studio'){
+// auto preset field
+function selectStudio() {
+    var presetSelect = document.querySelector('#presetSelect');
+    var presetShow = document.querySelector('#preset-show');
+    if(presetSelect.value == 'Video Studio'){
         presetShow.innerHTML = `
         <table class="table">
         <tr>
@@ -57,7 +56,7 @@ selectPreset.addEventListener('change', (e)=>{
         </tr>
     </table>
         `;
-    } else if (selectPreset.value == 'Web Developer'){
+    } else if (presetSelect.value == 'Web Developer'){
         presetShow.innerHTML = `
         <table class="table">
         <tr>
@@ -99,8 +98,4 @@ selectPreset.addEventListener('change', (e)=>{
         `
     }
 
-})
-
-
-const createTable = document.getElementById('create-table');
-const getCollection = firestore.collection('studio');
+}
