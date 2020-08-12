@@ -64,6 +64,29 @@
 .main {
   background-color: #FAFAFA;
 }
+.main #createTable h1 {
+  text-align: end;
+}
+
+#userImg {
+  background: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png) 100% no-repeat;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#userImg:hover input {
+  transform: translate3d(40px, 165px, 0px);
+}
+#userImg input {
+  transform: translate3d(40px, 195px, 0px);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+  color: transparent;
+}
 
 #sign {
   background: #e9faff;

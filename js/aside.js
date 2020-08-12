@@ -10,7 +10,19 @@ addList.addEventListener('submit', (e) =>{
     }).then(()=>{
         asideBar.innerHTML += `<li><button class="listBtn">${listName}</button><button class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
         addList.listName.value = '';
-
+        firestore.collection("users").doc(user)
+        .get().then(item => {
+            var u = item.data();
+            var mainSide = document.getElementsByClassName("main")[0];
+            mainSide.innerHTML = `<div id="createTable">
+                    <h1>${u.compName} Team</h1>
+                    <fieldset>
+                        <legend>${listName}</legend>
+                    </fieldset>
+                </div>`;
+        }).catch((err) => {
+            console.log(err);
+        })
     }).catch((err)=>{
         console.log(err);
     })

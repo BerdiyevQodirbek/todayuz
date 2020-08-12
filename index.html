@@ -36,19 +36,42 @@
 
 
                 </div>
-
+                
                 <div>
-                    <button class="btn btn-primary"><i class="ti-settings"></i> Settings</button>
-                    <button class="btn btn-danger" id="btn-log-out"><i class="ti-shift-left"></i> Log out</button>
+                    <button class="btn btn-primary" id="settingsBtn"><i class="ti-settings"></i>Settings</button>
+                    <button class="btn btn-danger" id="btn-log-out" id="logoutBtn"><i class="ti-shift-left"></i>Log out</button>
                 </div>
             </div>
             <div class="col-md-9 main">
 
-                <div>
-                    <h1>Cinemamax Team</h1>
-                    <fieldset>
-                        <legend>Worklist 2020</legend>
-                    </fieldset>
+                <div id="settingsSection">
+                    <form class="row">
+                        <div class="form-group col-md-6">
+                          <label for="" class="col-form-label">Company Name</label>
+                          <input type="text" autocomplete="off" class="form-control" id="compName">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="" class="col-form-label">Email</label>
+                          <input type="email" autocomplete="off" class="form-control" id="email">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="" class="col-form-label">Name</label>
+                          <input type="text" autocomplete="off" class="form-control" id="name">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="" class="col-form-label">Password</label>
+                          <input type="password" autocomplete="off" class="form-control" id="psw">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="" class="col-form-label">Tel</label>
+                          <input type="tel" autocomplete="off" class="form-control" id="tel">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div id="userImg">
+                                <input type="file" class="form-control" title=" " id="ImgFile">
+                            </div>
+                        </div>
+                      </form>
                 </div>
 
             </div>
@@ -79,6 +102,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/aside.js"></script>
+    <script src="js/setting.js"></script>
 
 </body>
 
