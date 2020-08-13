@@ -5,7 +5,7 @@ function selectStudio() {
     if(presetSelect.value == 'Video Studio'){
         presetShow.innerHTML = `
         <table class="table">
-        <tr>
+        <tr class="thead">
             <td>Date</td>
             <td>Type</td>
             <td>Studio</td>
@@ -59,7 +59,7 @@ function selectStudio() {
     } else if (presetSelect.value == 'Web Developer'){
         presetShow.innerHTML = `
         <table class="table">
-        <tr>
+        <tr class="thead">
             <td>Project</td>
             <td>Employer</td>
             <td>Developer</td>
