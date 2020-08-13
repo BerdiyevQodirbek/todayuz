@@ -132,16 +132,27 @@ legend {
   border-radius: 50%;
   overflow: hidden;
 }
-#userImg:hover input {
-  transform: translate3d(40px, 165px, 0px);
+#userImg:hover span {
+  background: #e4e6e7a1;
+  transform: translate3d(0px, 160px, 0px);
+  display: block;
+  font-size: 28px;
+  color: white;
+  text-align: center;
 }
 #userImg input {
   transform: translate3d(40px, 195px, 0px);
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: 0.5s;
   color: transparent;
+}
+#userImg span {
+  transform: translate3d(0px, 199px, 0px);
+  transition: 0.5s ease-out;
+  cursor: pointer;
+  color: white;
+  text-shadow: 0px 0px 3px #aeb4b7;
 }
 
 #sign {

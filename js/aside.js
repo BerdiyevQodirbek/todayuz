@@ -1,6 +1,7 @@
 const asideBar = document.getElementById('aside-bar');
-
 const addList = document.getElementById('add-list');
+
+// add list to firebase 
 
 addList.addEventListener('submit', (e) =>{
     e.preventDefault();
@@ -8,7 +9,7 @@ addList.addEventListener('submit', (e) =>{
     firestore.collection(user+'.worklist').doc(listName).set({
         name: listName
     }).then(()=>{
-        asideBar.innerHTML += `<li><button onclick="checkTable(this)" class="listBtn">${listName}</button><button class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
+        asideBar.innerHTML += `<li><button onclick="checkTable(this)" class="listBtn">${listName}</button><button onclick="deleteList(this)" data-id="${listName}" class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
         addList.listName.value = '';
         firestore.collection("users").doc(user)
         .get().then(item => {
@@ -43,14 +44,32 @@ addList.addEventListener('submit', (e) =>{
 
 })
 
+// put sidelist in reload
+
 firestore.collection(user+'.worklist').get().then(snapshot =>{
     snapshot.forEach(data =>{
-        asideBar.innerHTML += `<li><button onclick="checkTable(this)" class="listBtn">${data.id}</button><button class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
+        asideBar.innerHTML += `<li><button onclick="checkTable(this)" class="listBtn">${data.id}</button><button onclick="deleteList(this)" data-id="${data.id}" class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
          
     })
 })
 
+// delete clicked list
 
+function deleteList(elem) {
+    var list = elem.dataset.id;
+    var li = elem.closest("li");
+    var conf = confirm('Do you really want to delete "' + list + '" ?')
+    if (conf) {
+        firestore.collection(user + '.worklist').doc(list).delete()
+        .then(() => {
+            console.log(list + " list deleted");
+            li.remove()
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+}
 
 // log out
 
