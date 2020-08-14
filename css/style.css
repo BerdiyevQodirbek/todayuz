@@ -108,20 +108,35 @@ legend {
   margin-right: 10px;
 }
 
-.preset-show table tr:last-child td {
+.preset-show table .thead td:first-child, .main-table table .thead td:first-child {
+  border-radius: 10px 0px 0px 0px;
+}
+.preset-show table .thead td, .main-table table .thead td {
+  padding: 10px;
+}
+.preset-show table .thead td:last-child, .main-table table .thead td:last-child {
+  padding: 10px !important;
+  border-radius: 0px 10px 0px 0px;
+}
+.preset-show table tr td, .main-table table tr td {
   padding: 0;
 }
-.preset-show table tr:last-child td:last-child {
+.preset-show table tr td:last-child, .main-table table tr td:last-child {
   padding: 6px;
 }
-.preset-show table td {
+.preset-show table td, .main-table table td {
   background-color: #eee;
   text-align: center;
   border: none;
 }
-.preset-show input, .preset-show select {
+.preset-show input, .preset-show select, .main-table input, .main-table select {
   padding: 4px;
   font-size: smaller;
+}
+
+.add-row {
+  background-color: #eee;
+  width: 100%;
 }
 
 #userImg {

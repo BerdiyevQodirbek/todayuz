@@ -84,3 +84,58 @@ function checkTable(elem) {
     })
 
 }
+
+
+
+//add row Behruz
+
+const addRow = document.getElementById('add-row');
+const table = document.getElementById('table');
+addRow.addEventListener('click', (e)=>{
+  e.preventDefault();
+  table.innerHTML += `
+  <tr>
+  <td><input type="text" class="form-control" placeholder="Type event date"></td>
+  <td>
+      <select class="form-control">
+          <option selected hidden>Select type</option>
+          <option>Wedding</option>
+          <option>BM</option>
+      </select>
+  </td>
+  <td>
+      <select class="form-control">
+          <option selected hidden>Select studio</option>
+          <option>Cinemamax studios</option>
+          <option>Robinson studios</option>
+          <option>Creative studio</option>
+      </select>
+  </td>
+  <td>
+      <select class="form-control">
+          <option selected hidden>Select editor</option>
+          <option>John Doe</option>
+          <option>Marina</option>
+          <option>Edward</option>
+      </select>
+  </td>
+  <td><input type="date" class="form-control"></td>
+  <td>
+      <select class="form-control">
+          <option selected hidden>Change status</option>
+          <option>Working on it</option>
+          <option>Done</option>
+          <option>Missing files</option>
+      </select>
+  </td>
+  <td>
+      <select class="form-control">
+          <option selected hidden>Change status</option>
+          <option>Uploaded</option>
+          <option>Not yet</option>
+      </select>
+  </td>
+  <td><i class="ti-comments"></i></td>
+</tr>
+  `
+})

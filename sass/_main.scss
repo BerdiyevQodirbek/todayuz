@@ -3,6 +3,7 @@
     #createTable h1 {
         text-align: end;
     }
+    // margin-left: 300px;
 }
 
 
@@ -43,9 +44,23 @@ legend {
     }
 }
 
-.preset-show {
+.preset-show, .main-table {
     table {
-        tr:last-child {
+        .thead{
+            td:first-child{
+                border-radius: 10px 0px 0px 0px;
+            }
+            td{
+                padding: 10px;
+
+            }
+            td:last-child{
+                padding: 10px !important;
+                border-radius: 0px 10px 0px 0px;
+
+            }
+        }
+        tr{
             td {
                 padding: 0;
             }
@@ -67,6 +82,17 @@ legend {
         padding: 4px;
         font-size: smaller;
     }
+    
 
 
+}
+
+.main-table{
+    // // background-color: #444;
+    // height: 70vh;
+    // overflow-y: auto;
+}
+.add-row{
+    background-color: #eee;
+    width: 100%;
 }
