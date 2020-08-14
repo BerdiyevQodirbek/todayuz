@@ -108,11 +108,15 @@ legend {
   margin-right: 10px;
 }
 
+.preset-show table .thead td:first-child, .main-table table .thead td:first-child {
+  border-radius: 10px 0px 0px 0px;
+}
 .preset-show table .thead td, .main-table table .thead td {
   padding: 10px;
 }
 .preset-show table .thead td:last-child, .main-table table .thead td:last-child {
   padding: 10px !important;
+  border-radius: 0px 10px 0px 0px;
 }
 .preset-show table tr td, .main-table table tr td {
   padding: 0;

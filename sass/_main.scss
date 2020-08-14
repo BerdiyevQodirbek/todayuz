@@ -47,11 +47,17 @@ legend {
 .preset-show, .main-table {
     table {
         .thead{
+            td:first-child{
+                border-radius: 10px 0px 0px 0px;
+            }
             td{
                 padding: 10px;
+
             }
             td:last-child{
                 padding: 10px !important;
+                border-radius: 0px 10px 0px 0px;
+
             }
         }
         tr{
