@@ -27,7 +27,7 @@ addList.addEventListener('submit', (e) =>{
                 <option>Video Studio</option>
                 <option>Web Developer</option>
             </select>
-            <button onclick="createTable()" class="btn btn-primary" id="create-table">Create</button>
+            <button onclick="createTable(this)" data-id="${listName}" class="btn btn-primary" id="create-table">Create</button>
 
 
         </div>

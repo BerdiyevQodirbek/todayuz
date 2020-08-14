@@ -1,3 +1,101 @@
+// create Table
+
+function createTable(el) {
+  var typeSt = document.getElementById("presetSelect").value
+  var studioName = el.dataset.id;
+  var addedAt = document.getElementById("addedAt").value;
+  var projectType = document.getElementById("projectType").value;
+  var studioType = document.getElementById("studioType").value;
+  var engineers = document.getElementById("engineers").value;
+  var deadline = document.getElementById("deadline").value;
+  var progressType = document.getElementById("progressType").value;
+  var finishedType = document.getElementById("finishedType").value;
+  var currDate = Date.now()
+  console.log(studioName)
+  var tableRef = firestore.collection("tables").doc(studioName).collection(typeSt).doc("Row-" + currDate)
+    if (typeSt == "Video Studio") {
+      console.log("video");
+    } else if(typeSt == "Web Developer") {
+      console.log("web");
+    } else {
+      console.log("studio");
+    }
+  tableRef.set({
+    
+    date: currDate
+  }).then(() => {
+    var mainSide = document.getElementsByClassName("main")[0];
+    mainSide.innerHTML = `
+    <div class="top-user-info" id="createTable">
+            <h1>Company</h1>
+            <fieldset>
+                <legend id="studioName">${studioName}</legend>
+            </fieldset>
+        </div>
+
+        <div class="main-table">
+            <table class="table" id="table">
+              <thead>
+                <tr class="thead">
+                    <td>Date</td>
+                    <td>Type</td>
+                    <td>Studio</td>
+                    <td>Editor</td>
+                    <td>Timeline</td>
+                    <td>Status</td>
+                    <td>Upload</td>
+                    <td><i class="ti-comments"></i></td>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                <tr>
+                  <td><input type="text" id="addedAt" class="form-control"></td>
+                  <td>
+                    <select class="form-control" id="projectType">
+                        <option>Wedding</option>
+                        <option>BM</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="form-control" id="studioType">
+                        <option>Cinemamax studios</option>
+                        <option>Robinson studios</option>
+                        <option>Creative studio</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="form-control" id="engineers">
+                        <option>John Doe</option>
+                        <option>Marina</option>
+                        <option>Edward</option>
+                    </select>
+                  </td>
+                  <td><input type="date" class="form-control" id="deadline"></td>
+                  <td>
+                    <select onchange="change(this)" class="form-control" id="progressType">
+                        <option>Working on it</option>
+                        <option>Done</option>
+                        <option>Missing files</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select onchange="upload(this)" class="form-control" id="finishedType">
+                        <option>Uploaded</option>
+                        <option>Not yet</option>
+                    </select>
+                  </td>
+                  <td><i class="ti-comments"></i></td>
+                </tr>
+              </tbody>  
+            </table>
+            <button onclick="addNewRow()" class="btn btn-light add-row" id="add-row">Add Row</button>
+        </div>`;
+    // console.log("working");
+  }).catch((err) => {
+    console.log("Error is: " + err.message);
+  })
+}
+
 // studio preset field
 
 function checkTable(elem) {
@@ -12,7 +110,7 @@ function checkTable(elem) {
             <div class="top-user-info" id="createTable">
                     <h1>${u.compName}</h1>
                     <fieldset>
-                        <legend>${elem.innerText}</legend>
+                        <legend id="studioName">${elem.innerText}</legend>
                     </fieldset>
                 </div>
 
@@ -88,7 +186,7 @@ function checkTable(elem) {
                 mainSide.innerHTML = `<div class="top-user-info" id="createTable">
                 <h1>${u.compName}</h1>
                 <fieldset>
-                <legend>${elem.innerText}</legend>
+                <legend id="studioName">${elem.innerText}</legend>
                 </fieldset>
             </div>
             <div class="preset form-group">
@@ -97,7 +195,7 @@ function checkTable(elem) {
                     <option>Video Studio</option>
                     <option>Web Developer</option>
                 </select>
-                <button onclick="createTable()" class="btn btn-primary" id="create-table">Create</button>
+                <button onclick="createTable(this)" data-id="${elem.innerText}" class="btn btn-primary" id="create-table">Create</button>
     
     
             </div>
@@ -120,8 +218,8 @@ function checkTable(elem) {
 
 var addRow = document.getElementById('add-row');
 function addNewRow() {
-  var table = document.getElementById('tbody');
-  table.innerHTML += `
+  var tbody = document.getElementById('tbody');
+  tbody.innerHTML += `
   <tr>
   <td><input type="text" class="form-control" placeholder="Type event date"></td>
   <td>
@@ -166,5 +264,4 @@ function addNewRow() {
   <td><i class="ti-comments"></i></td>
 </tr>
   `
-  console.log(table);
 }
