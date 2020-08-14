@@ -28,13 +28,14 @@ settingBtn.addEventListener("click", () => {
           <label for="" class="col-form-label">Telephone</label>
           <input type="tel" autocomplete="off" class="form-control" value="${admin.tel}" id="tel">
         </div>
-        <div class="form-group col-md-12">
-            <div id="userImg">
+        <div class="form-group col-md-6">
+            <div class="mx-auto" id="userImg">
               <span onclick="imgFile()"><i class="ti-camera"></i></span>
               <input type="file" class="form-control" title=" " id="ImgFile">
             </div>
         </div>
       </form>
+      <button class="btn btn-outline-secondary btn-block">edit</button>
     </div>`
   }).catch((err) => {
     console.log(err);
