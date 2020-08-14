@@ -8,47 +8,76 @@ function checkTable(elem) {
             firestore.collection("users").doc(user)
             .get().then(item => {
                 var u = item.data();
-                mainSide.innerHTML = `<div class="top-user-info" id="createTable">
-                <h1>${u.compName}</h1>
-                <fieldset>
-                <legend>${elem.innerText}</legend>
-                </fieldset>
-            </div>
-            <div class="preset form-group">
-            <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-            </div>
-            <div id="preset-show" class="preset-show">
-               
-            </div>`;
+                mainSide.innerHTML = `
+            <div class="top-user-info" id="createTable">
+                    <h1>${u.compName}</h1>
+                    <fieldset>
+                        <legend>${elem.innerText}</legend>
+                    </fieldset>
+                </div>
+
+                <div class="main-table">
+                    <table class="table" id="table">
+                      <thead>
+                        <tr class="thead">
+                            <td>Date</td>
+                            <td>Type</td>
+                            <td>Studio</td>
+                            <td>Editor</td>
+                            <td>Timeline</td>
+                            <td>Status</td>
+                            <td>Upload</td>
+                            <td><i class="ti-comments"></i></td>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody">
+                        <tr>
+                            <td><input type="text" class="form-control" placeholder="Type event date"></td>
+                            <td>
+                                <select class="form-control">
+                                    <option selected hidden>Select type</option>
+                                    <option>Wedding</option>
+                                    <option>BM</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option selected hidden>Select studio</option>
+                                    <option>Cinemamax studios</option>
+                                    <option>Robinson studios</option>
+                                    <option>Creative studio</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
+                                    <option selected hidden>Select editor</option>
+                                    <option>John Doe</option>
+                                    <option>Marina</option>
+                                    <option>Edward</option>
+                                </select>
+                            </td>
+                            <td><input type="date" class="form-control"></td>
+                            <td>
+                                <select onchange="change(this)" class="form-control" id="eStatus">
+                                    <option selected hidden>Change status</option>
+                                    <option>Working on it</option>
+                                    <option>Done</option>
+                                    <option>Missing files</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select onchange="upload(this)" class="form-control" id="eUpload">
+                                    <option selected hidden>Change status</option>
+                                    <option>Uploaded</option>
+                                    <option>Not yet</option>
+                                </select>
+                            </td>
+                            <td><i class="ti-comments"></i></td>
+                        </tr>
+                      </tbody>  
+                    </table>
+                    <button onclick="addNewRow()" class="btn btn-light add-row" id="add-row">Add Row</button>
+                </div>`;
             }).catch((err) => {
                 console.log(err);
             })
@@ -89,10 +118,9 @@ function checkTable(elem) {
 
 //add row Behruz
 
-const addRow = document.getElementById('add-row');
-const table = document.getElementById('table');
-addRow.addEventListener('click', (e)=>{
-  e.preventDefault();
+var addRow = document.getElementById('add-row');
+function addNewRow() {
+  var table = document.getElementById('tbody');
   table.innerHTML += `
   <tr>
   <td><input type="text" class="form-control" placeholder="Type event date"></td>
@@ -121,7 +149,7 @@ addRow.addEventListener('click', (e)=>{
   </td>
   <td><input type="date" class="form-control"></td>
   <td>
-      <select class="form-control">
+      <select onchange="change(this)" class="form-control">
           <option selected hidden>Change status</option>
           <option>Working on it</option>
           <option>Done</option>
@@ -129,13 +157,14 @@ addRow.addEventListener('click', (e)=>{
       </select>
   </td>
   <td>
-      <select class="form-control">
+      <select onchange="upload(this)" class="form-control">
           <option selected hidden>Change status</option>
           <option>Uploaded</option>
-          <option>Not yet</option>
+          <option>Not yet</option>  
       </select>
   </td>
   <td><i class="ti-comments"></i></td>
 </tr>
   `
-})
+  console.log(table);
+}
