@@ -11,88 +11,100 @@ function createTable(el) {
   var progressType = document.getElementById("progressType").value;
   var finishedType = document.getElementById("finishedType").value;
   var currDate = Date.now()
-  console.log(studioName)
-  var tableRef = firestore.collection("tables").doc(studioName).collection(typeSt).doc("Row-" + currDate)
+  firestore.collection(user+'.worklist').doc(studioName).update({
+      check: currDate 
+  }).then(() => {
+    var tableRef = firestore.collection("tables").doc(studioName).collection(typeSt).doc("Row-" + currDate)
     if (typeSt == "Video Studio") {
+        tableRef.set({
+            date: currDate,
+            addedAt,
+            projectType,
+            studioType,
+            engineers,
+            deadline,
+            progressType,
+            finishedType
+          }).then(() => {
+            var mainSide = document.getElementsByClassName("main")[0];
+            mainSide.innerHTML = `
+            <div class="top-user-info" id="createTable">
+                    <h1>Company</h1>
+                    <fieldset>
+                        <legend id="studioName">${studioName}</legend>
+                    </fieldset>
+                </div>
+        
+                <div class="main-table">
+                    <table class="table" id="table">
+                      <thead>
+                        <tr class="thead">
+                            <td>Date</td>
+                            <td>Type</td>
+                            <td>Studio</td>
+                            <td>Editor</td>
+                            <td>Timeline</td>
+                            <td>Status</td>
+                            <td>Upload</td>
+                            <td><i class="ti-comments"></i></td>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody">
+                        <tr>
+                          <td><input type="text" id="addedAt" class="form-control"></td>
+                          <td>
+                            <select class="form-control" id="projectType">
+                                <option>Wedding</option>
+                                <option>BM</option>
+                            </select>
+                          </td>
+                          <td>
+                            <select class="form-control" id="studioType">
+                                <option>Cinemamax studios</option>
+                                <option>Robinson studios</option>
+                                <option>Creative studio</option>
+                            </select>
+                          </td>
+                          <td>
+                            <select class="form-control" id="engineers">
+                                <option>John Doe</option>
+                                <option>Marina</option>
+                                <option>Edward</option>
+                            </select>
+                          </td>
+                          <td><input type="date" class="form-control" id="deadline"></td>
+                          <td>
+                            <select onchange="change(this)" class="form-control" id="progressType">
+                                <option>Working on it</option>
+                                <option>Done</option>
+                                <option>Missing files</option>
+                            </select>
+                          </td>
+                          <td>
+                            <select onchange="upload(this)" class="form-control" id="finishedType">
+                                <option>Uploaded</option>
+                                <option>Not yet</option>
+                            </select>
+                          </td>
+                          <td><i class="ti-comments"></i></td>
+                        </tr>
+                      </tbody>  
+                    </table>
+                    <button onclick="addNewRow()" class="btn btn-light add-row" id="add-row">Add Row</button>
+                </div>`;
+            // console.log("working");
+          }).catch((err) => {
+            console.log("Error is: " + err.message);
+          })
       console.log("video");
     } else if(typeSt == "Web Developer") {
       console.log("web");
     } else {
       console.log("studio");
     }
-  tableRef.set({
-    
-    date: currDate
-  }).then(() => {
-    var mainSide = document.getElementsByClassName("main")[0];
-    mainSide.innerHTML = `
-    <div class="top-user-info" id="createTable">
-            <h1>Company</h1>
-            <fieldset>
-                <legend id="studioName">${studioName}</legend>
-            </fieldset>
-        </div>
-
-        <div class="main-table">
-            <table class="table" id="table">
-              <thead>
-                <tr class="thead">
-                    <td>Date</td>
-                    <td>Type</td>
-                    <td>Studio</td>
-                    <td>Editor</td>
-                    <td>Timeline</td>
-                    <td>Status</td>
-                    <td>Upload</td>
-                    <td><i class="ti-comments"></i></td>
-                </tr>
-              </thead>
-              <tbody id="tbody">
-                <tr>
-                  <td><input type="text" id="addedAt" class="form-control"></td>
-                  <td>
-                    <select class="form-control" id="projectType">
-                        <option>Wedding</option>
-                        <option>BM</option>
-                    </select>
-                  </td>
-                  <td>
-                    <select class="form-control" id="studioType">
-                        <option>Cinemamax studios</option>
-                        <option>Robinson studios</option>
-                        <option>Creative studio</option>
-                    </select>
-                  </td>
-                  <td>
-                    <select class="form-control" id="engineers">
-                        <option>John Doe</option>
-                        <option>Marina</option>
-                        <option>Edward</option>
-                    </select>
-                  </td>
-                  <td><input type="date" class="form-control" id="deadline"></td>
-                  <td>
-                    <select onchange="change(this)" class="form-control" id="progressType">
-                        <option>Working on it</option>
-                        <option>Done</option>
-                        <option>Missing files</option>
-                    </select>
-                  </td>
-                  <td>
-                    <select onchange="upload(this)" class="form-control" id="finishedType">
-                        <option>Uploaded</option>
-                        <option>Not yet</option>
-                    </select>
-                  </td>
-                  <td><i class="ti-comments"></i></td>
-                </tr>
-              </tbody>  
-            </table>
-            <button onclick="addNewRow()" class="btn btn-light add-row" id="add-row">Add Row</button>
-        </div>`;
-    // console.log("working");
+      console.log("Added");
   }).catch((err) => {
-    console.log("Error is: " + err.message);
+      console.log(err);
   })
 }
 
@@ -100,7 +112,9 @@ function createTable(el) {
 
 function checkTable(elem) {
     var mainSide = document.getElementsByClassName("main")[0];
-    var tableRef = firestore.collection("tables").doc(elem.innerText)
+    firestore.collection(user+'.worklist').doc(elem.innerText).get().then(data => {
+        var row = data.data().check
+        var tableRef = firestore.collection("tables").doc(elem.innerText).collection("Video Studio").doc("Row-" + row)
     tableRef.get().then(tables => {
         if (tables.data() != undefined) {
             firestore.collection("users").doc(user)
@@ -209,7 +223,9 @@ function checkTable(elem) {
     }).catch((err) => {
         console.log(err);
     })
-
+    }).catch((err) => {
+        console.log(err);
+    })
 }
 
 

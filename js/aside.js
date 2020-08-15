@@ -9,7 +9,7 @@ addList.addEventListener('submit', (e) =>{
     firestore.collection(user+'.worklist').doc(listName).set({
         name: listName
     }).then(()=>{
-        asideBar.innerHTML += `<li><button onclick="checkTable(this)" class="listBtn">${listName}</button><button onclick="deleteList(this)" data-id="${listName}" class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
+        asideBar.innerHTML += `<li><button onclick="checkTable(this)" class="listBtn" id="${listName}">${listName}</button><button onclick="deleteList(this)" data-id="${listName}" class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
         addList.listName.value = '';
         firestore.collection("users").doc(user)
         .get().then(item => {
@@ -48,7 +48,7 @@ addList.addEventListener('submit', (e) =>{
 
 firestore.collection(user+'.worklist').get().then(snapshot =>{
     snapshot.forEach(data =>{
-        asideBar.innerHTML += `<li><button onclick="checkTable(this)" class="listBtn">${data.id}</button><button onclick="deleteList(this)" data-id="${data.id}" class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
+        asideBar.innerHTML += `<li><button onclick="checkTable(this)" class="listBtn" id="${data.id}">${data.id}</button><button onclick="deleteList(this)" data-id="${data.id}" class="dropdownBtn"><i class="ti-menu"></i></button></li>`;
          
     })
 })
